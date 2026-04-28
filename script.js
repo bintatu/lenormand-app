@@ -37,9 +37,18 @@ const cards = [
   { name: "十字架", meaning: "試練・運命・重荷" , meaning_short: "試練" },
 ];
 
+
 function makeFlow(a, b, c) {
-  
 }
+
+function copyResult() {
+  const text = document.getElementById("result").textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("コピーしたよ");
+  });
+}
+
+
 function drawCards() {
   const button = document.getElementById("drawBtn");
   button.disabled = true;
@@ -63,6 +72,7 @@ const c = selected[2]?.meaning_short ?? selected[2]?.meaning;
 
   const flow = makeFlow(a, b, c);
 
+
 const output =
   now + "\n\n" +
   topLine + "\n\n" +
@@ -73,13 +83,6 @@ document.getElementById("result").textContent = output;
  
   flow;
   
-
-function copyResult() {
-  const text = document.getElementById("result").textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("コピーしたよ");
-  });
-}
 
   setTimeout(() => {
     button.disabled = false;
