@@ -74,6 +74,13 @@ document.getElementById("result").textContent = output;
   flow;
   
 
+function copyResult() {
+  const text = document.getElementById("result").textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("コピーしたよ");
+  });
+}
+
   setTimeout(() => {
     button.disabled = false;
   }, 2500);
